@@ -32,7 +32,7 @@ public class Users extends EntityBase {
 
 	/** パスワード */
 	@Column(name = "password", nullable = false)
-	private Integer password;
+	private String password;
 
 	/** 名前 */
 	@Column(name = "name", nullable = false)
