@@ -6,7 +6,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import jp.dcworks.engineersgate.egbbs.entity.Users;
 
 /**
- * ユーザー関連リポジトリインターフェース.
+ * ユーザー関連リポジトリインターフェース。
  *
  * @author tomo-sato
  */
@@ -20,4 +20,14 @@ public interface UsersRepository extends PagingAndSortingRepository<Users, Long>
 	 * @return ユーザー情報を返す。
 	 */
 	Users findByLoginId(String loginId);
+
+	/**
+	 * ユーザー検索を行う。
+	 * ログインID、パスワードを指定し、ユーザーを検索する。
+	 *
+	 * @param loginId ログインID
+	 * @param password パスワード
+	 * @return ユーザー情報を返す。
+	 */
+	Users findByLoginIdAndPassword(String loginId, String password);
 }

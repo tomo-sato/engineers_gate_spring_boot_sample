@@ -9,7 +9,7 @@ import jp.dcworks.engineersgate.egbbs.repository.UsersRepository;
 import lombok.extern.log4j.Log4j2;
 
 /**
- * ユーザー関連サービスクラス.
+ * ユーザー関連サービスクラス。
  *
  * @author tomo-sato
  */
@@ -17,7 +17,7 @@ import lombok.extern.log4j.Log4j2;
 @Service
 public class UsersService {
 
-	/** リポジトリインターフェース. */
+	/** リポジトリインターフェース。 */
 	@Autowired
 	private UsersRepository repository;
 
@@ -33,6 +33,23 @@ public class UsersService {
 
 		Users users = repository.findByLoginId(loginId);
 		log.info("ユーザー検索結果。：loginId={}, users={}", loginId, users);
+
+		return users;
+	}
+
+	/**
+	 * ユーザー検索を行う。
+	 * ログインID、パスワードを指定し、ユーザーを検索する。
+	 *
+	 * @param loginId ログインID
+	 * @param password パスワード
+	 * @return ユーザー情報を返す。
+	 */
+	public Users findUsers(String loginId, String password) {
+		log.info("ユーザーを検索します。：loginId={}, password={}", loginId, password);
+
+		Users users = repository.findByLoginIdAndPassword(loginId, password);
+		log.info("ユーザー検索結果。：loginId={}, password={}, users={}", loginId, password, users);
 
 		return users;
 	}
