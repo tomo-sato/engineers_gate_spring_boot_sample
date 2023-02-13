@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
 
 <!-- ======= Head ======= -->
-<div th:replace="common/shoulder_fragment::head(title = 'Home')"></div>
+<div th:replace="common/shoulder_fragment::head(title = 'SNSサイト - トピック詳細')"></div>
 
 <body>
 
@@ -15,7 +15,7 @@
       <h1>トピック</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="/home/">Home</a></li>
           <li class="breadcrumb-item">トピック</li>
         </ol>
       </nav>
