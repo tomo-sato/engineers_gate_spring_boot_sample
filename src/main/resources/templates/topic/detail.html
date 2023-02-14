@@ -35,10 +35,8 @@
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Default Card<span> / 山田太郎</span></h5>
-              Ut in ea error laudantium quas omnis officia. Sit sed praesentium voluptas. Corrupti inventore consequatur nisi necessitatibus modi consequuntur soluta id. Enim autem est esse natus assumenda. Non sunt dignissimos officiis expedita. Consequatur sint repellendus voluptas.
-              Quidem sit est nulla ullam. Suscipit debitis ullam iusto dolorem animi dolorem numquam. Enim fuga ipsum dolor nulla quia ut.
-              Rerum dolor voluptatem et deleniti libero totam numquam nobis distinctio. Sit sint aut. Consequatur rerum in.
+              <h5 class="card-title">[[${topics.title}]]<span> / [[${topics.users.name}]]</span></h5>
+              [[${topics.body}]]
             </div>
             <div class="card-footer">
               <form action="pages-input.html">
@@ -65,11 +63,11 @@
               </div>
 
               <!-- General Form Elements -->
-              <form>
+              <form method="post" th:action="@{/topic/comment/regist/{id}(id=${topics.id})}" th:object="${requestTopicComment}">
                 <div class="row mb-3">
                   <label for="inputPassword" class="col-sm-2 col-form-label">本文</label>
                   <div class="col-sm-10">
-                    <textarea class="form-control" style="height: 100px"></textarea>
+                    <textarea class="form-control" name="body" style="height: 100px" th:field="*{body}"></textarea>
                   </div>
                 </div>
 
@@ -84,12 +82,10 @@
             </div>
           </div>
 
-          <div class="card">
+          <div class="card" th:each="comments:${topics.commentsList}">
             <div class="card-body">
-              <h5 class="card-title"><span>山田太郎</span></h5>
-              Ut in ea error laudantium quas omnis officia. Sit sed praesentium voluptas. Corrupti inventore consequatur nisi necessitatibus modi consequuntur soluta id. Enim autem est esse natus assumenda. Non sunt dignissimos officiis expedita. Consequatur sint repellendus voluptas.
-              Quidem sit est nulla ullam. Suscipit debitis ullam iusto dolorem animi dolorem numquam. Enim fuga ipsum dolor nulla quia ut.
-              Rerum dolor voluptatem et deleniti libero totam numquam nobis distinctio. Sit sint aut. Consequatur rerum in.
+              <h5 class="card-title"><span>[[${comments.users.name}]]</span></h5>
+              [[${comments.body}]]
             </div>
             <div class="card-footer">
               <form>
@@ -103,43 +99,6 @@
             </div>
           </div>
 
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title"><span>山田太郎</span></h5>
-              Ut in ea error laudantium quas omnis officia. Sit sed praesentium voluptas. Corrupti inventore consequatur nisi necessitatibus modi consequuntur soluta id. Enim autem est esse natus assumenda. Non sunt dignissimos officiis expedita. Consequatur sint repellendus voluptas.
-              Quidem sit est nulla ullam. Suscipit debitis ullam iusto dolorem animi dolorem numquam. Enim fuga ipsum dolor nulla quia ut.
-              Rerum dolor voluptatem et deleniti libero totam numquam nobis distinctio. Sit sint aut. Consequatur rerum in.
-            </div>
-            <div class="card-footer">
-              <form>
-                <div class="row mb-3">
-                  <div class="col-sm-4">
-                    <button type="submit" class="btn btn-primary">編集する</button>
-                    <button type="submit" class="btn btn-danger">削除する</button>
-                  </div>
-                </div>
-              </form><!-- End General Form Elements -->
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title"><span>山田太郎</span></h5>
-              Ut in ea error laudantium quas omnis officia. Sit sed praesentium voluptas. Corrupti inventore consequatur nisi necessitatibus modi consequuntur soluta id. Enim autem est esse natus assumenda. Non sunt dignissimos officiis expedita. Consequatur sint repellendus voluptas.
-              Quidem sit est nulla ullam. Suscipit debitis ullam iusto dolorem animi dolorem numquam. Enim fuga ipsum dolor nulla quia ut.
-              Rerum dolor voluptatem et deleniti libero totam numquam nobis distinctio. Sit sint aut. Consequatur rerum in.
-            </div>
-            <div class="card-footer">
-              <form>
-                <div class="row mb-3">
-                  <div class="col-sm-4">
-                    <button type="submit" class="btn btn-primary">編集する</button>
-                    <button type="submit" class="btn btn-danger">削除する</button>
-                  </div>
-                </div>
-              </form><!-- End General Form Elements -->
-            </div>
-          </div>
         </div>
       </div>
     </section>

@@ -5,7 +5,7 @@ package jp.dcworks.engineersgate.egbbs.core;
  *
  * @author tomo-sato
  */
-public class AppSessionTimeoutException extends RuntimeException {
+public class AppSessionTimeoutException extends AppNotFoundException {
 
 	public AppSessionTimeoutException() {
 		super();

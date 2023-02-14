@@ -33,10 +33,10 @@ public class AppControllerAdvice extends ResponseEntityExceptionHandler {
 
 	/**
 	 * 例外ハンドリング。
-	 * ※セッションタイムアウト。
+	 * ※404 NotFound
 	 */
-	@ExceptionHandler(AppSessionTimeoutException.class)
-	public String handleOtherException(AppSessionTimeoutException exception) {
+	@ExceptionHandler(AppNotFoundException.class)
+	public String handleOtherException(AppNotFoundException exception) {
 		log.error(exception, exception);
 		return "error/404";
 	}

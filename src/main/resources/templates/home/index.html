@@ -37,40 +37,12 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row"><a href="/topic/detail">1</a></th>
-                    <td><a href="/topic/detail">Brandon Jacob</a></td>
-                    <td><a href="/topic/detail">Designer</a></td>
-                    <td>28</td>
-                    <td>2016-05-25</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Bridie Kessler</td>
-                    <td>Developer</td>
-                    <td>35</td>
-                    <td>2014-12-05</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Ashleigh Langosh</td>
-                    <td>Finance</td>
-                    <td>45</td>
-                    <td>2011-08-12</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">4</th>
-                    <td>Angus Grady</td>
-                    <td>HR</td>
-                    <td>34</td>
-                    <td>2012-06-11</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">5</th>
-                    <td>Raheem Lehner</td>
-                    <td>Dynamic Division Officer</td>
-                    <td>47</td>
-                    <td>2011-04-19</td>
+                  <tr th:each="topics:${topicsList}">
+                    <th scope="row"><a th:href="@{/topic/detail/{id}(id=${topics.id})}" th:text="${topics.id}">1</a></th>
+                    <td><a th:href="@{/topic/detail/{id}(id=${topics.id})}" th:text="${topics.title}">Brandon Jacob</a></td>
+                    <td><a th:href="@{/topic/detail/{id}(id=${topics.id})}" th:text="${topics.body}">Designer</a></td>
+                    <td th:text="${topics.users.name}">佐藤太郎</td>
+                    <td th:text="${topics.created}">2016-05-25</td>
                   </tr>
                 </tbody>
               </table>
