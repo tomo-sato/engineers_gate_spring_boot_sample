@@ -24,14 +24,14 @@ import lombok.extern.log4j.Log4j2;
 @RequestMapping("/home")
 public class HomeController {
 
-	/** トピック関連サービスクラス. */
+	/** トピック関連サービスクラス。 */
 	@Autowired
 	private TopicsService topicsService;
 
 	/**
 	 * [GET]ホーム画面のアクション。
 	 *
-	 * @param model 入力フォームのオブジェクト
+	 * @param model 画面にデータを送るためのオブジェクト
 	 */
 	@GetMapping(path = {"", "/"})
 	public String index(Model model) {

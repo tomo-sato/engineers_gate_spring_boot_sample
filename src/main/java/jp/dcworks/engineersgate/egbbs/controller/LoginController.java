@@ -33,14 +33,14 @@ public class LoginController {
 	@Autowired
 	private HttpSession session;
 
-	/** ユーザー関連サービスクラス. */
+	/** ユーザー関連サービスクラス。 */
 	@Autowired
 	private UsersService usersService;
 
 	/**
 	 * [GET]ログインフォームのアクション。
 	 *
-	 * @param model 入力フォームのオブジェクト
+	 * @param model 画面にデータを送るためのオブジェクト
 	 */
 	@GetMapping("")
 	public String index(Model model) {
@@ -89,13 +89,14 @@ public class LoginController {
 		}
 
 
+		// ログインIDとパスワードを取得。
 		String loginId = requestLogin.getLoginId();
 		String password = requestLogin.getPassword();
 
 		// ユーザー検索を行う。
 		Users users = usersService.findUsers(loginId, password);
 
-		// ユーザーが取得できなかったら、ログインエラー
+		// ユーザーが取得できなかったら、ログインエラー。
 		if (users == null) {
 			log.warn("ログインに失敗しました。：requestLogin={}", requestLogin);
 
@@ -109,15 +110,16 @@ public class LoginController {
 			return "redirect:/";
 		}
 
-
 		// ログインに成功したら、ログイン情報をセッションに保持。
 		session.setAttribute(AppConst.SESSION_KEY_LOGIN_INFO, users);
-
 
 		// ホーム画面へリダイレクト。
 		return "redirect:/home";
 	}
 
+	/**
+	 * [GET]ログアウトアクション。
+	 */
 	@GetMapping("logout")
 	public String logout() {
 

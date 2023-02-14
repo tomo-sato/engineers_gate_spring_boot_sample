@@ -42,7 +42,7 @@
                     <td><a th:href="@{/topic/detail/{id}(id=${topics.id})}" th:text="${topics.title}">Brandon Jacob</a></td>
                     <td><a th:href="@{/topic/detail/{id}(id=${topics.id})}" th:text="${topics.body}">Designer</a></td>
                     <td th:text="${topics.users.name}">佐藤太郎</td>
-                    <td th:text="${topics.created}">2016-05-25</td>
+                    <td th:text="${#dates.format(topics.created, 'yyyy-MM-dd HH:mm:ss')}">2016-05-25</td>
                   </tr>
                 </tbody>
               </table>

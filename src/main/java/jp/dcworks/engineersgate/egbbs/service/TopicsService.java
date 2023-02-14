@@ -29,7 +29,7 @@ public class TopicsService {
 	 * @return トピックを全件取得する。
 	 */
 	public List<Topics> findAllTopics() {
-		return (List<Topics>) repository.findAll();
+		return (List<Topics>) repository.findByOrderByIdDesc();
 	}
 
 	/**

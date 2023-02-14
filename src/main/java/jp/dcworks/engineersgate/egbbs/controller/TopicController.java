@@ -23,7 +23,7 @@ import jp.dcworks.engineersgate.egbbs.util.StringUtil;
 import lombok.extern.log4j.Log4j2;
 
 /**
- * アカウント登録コントローラー。
+ * トピックコントローラー。
  *
  * @author tomo-sato
  */
@@ -33,18 +33,18 @@ import lombok.extern.log4j.Log4j2;
 @RequestMapping("/topic")
 public class TopicController extends AppController {
 
-	/** トピック関連サービスクラス. */
+	/** トピック関連サービスクラス。 */
 	@Autowired
 	private TopicsService topicsService;
 
-	/** コメント関連サービスクラス. */
+	/** コメント関連サービスクラス。 */
 	@Autowired
 	private CommentsService commentsService;
 
 	/**
 	 * [GET]トピック作成入力フォームのアクション。
 	 *
-	 * @param model 入力フォームのオブジェクト
+	 * @param model 画面にデータを送るためのオブジェクト
 	 */
 	@GetMapping("/input")
 	public String input(Model model) {
@@ -95,8 +95,7 @@ public class TopicController extends AppController {
 	 * [POST]トピック詳細アクション。
 	 *
 	 * @param id トピックID
-	 * @param model 入力フォームのオブジェクト
-	 * @return
+	 * @param model 画面にデータを送るためのオブジェクト
 	 */
 	@GetMapping("/detail/{id}")
 	public String detail(@PathVariable Long id, Model model) {
@@ -127,7 +126,6 @@ public class TopicController extends AppController {
 	 * @param requestTopicComment 入力フォームの内容
 	 * @param result バリデーション結果
 	 * @param redirectAttributes リダイレクト時に使用するオブジェクト
-	 * @return
 	 */
 	@PostMapping("/comment/regist/{topicsId}")
 	public String commentRegist(@PathVariable Long topicsId,
@@ -145,7 +143,7 @@ public class TopicController extends AppController {
 			redirectAttributes.addFlashAttribute("requestTopicComment", requestTopicComment);
 
 			// 入力画面へリダイレクト。
-			return "redirect:/topic/input";
+			return "redirect:/topic/detail/" + StringUtil.toString(topicsId, StringUtil.BLANK);
 		}
 
 		// ログインユーザー情報取得

@@ -5,7 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * アカウント登録コントローラー。
+ * ショルダー確認用コントローラー。
+ * ※ショルダー（ヘッダー、フッター、その他ショルダー）の見栄えを確認するためのコントローラー。
  *
  * @author tomo-sato
  */

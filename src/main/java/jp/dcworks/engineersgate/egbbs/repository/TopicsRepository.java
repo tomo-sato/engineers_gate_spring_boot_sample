@@ -1,5 +1,6 @@
 package jp.dcworks.engineersgate.egbbs.repository;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
@@ -22,4 +23,11 @@ public interface TopicsRepository extends PagingAndSortingRepository<Topics, Lon
 	 * @return トピック情報を返す。
 	 */
 	Optional<Topics> findById(Long id);
+
+	/**
+	 * トピック一覧を取得する。
+	 * トピックIDの降順。
+	 * @return トピック一覧を返す。
+	 */
+	List<Topics> findByOrderByIdDesc();
 }

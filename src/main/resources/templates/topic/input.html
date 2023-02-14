@@ -30,17 +30,9 @@
               <h5 class="card-title">トピックを投稿する</h5>
 
               <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <div>
+                <div th:each="error : ${validationErrors.getAllErrors()}">
                   <i class="bi bi-exclamation-octagon me-1"></i>
-                  A simple danger alert with icon—check it out!
-                </div>
-                <div>
-                  <i class="bi bi-exclamation-octagon me-1"></i>
-                  A simple danger alert with icon—check it out!
-                </div>
-                <div>
-                  <i class="bi bi-exclamation-octagon me-1"></i>
-                  A simple danger alert with icon—check it out!
+                  <span th:text="${error.getDefaultMessage()}">エラーメッセージ</span>
                 </div>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
               </div>

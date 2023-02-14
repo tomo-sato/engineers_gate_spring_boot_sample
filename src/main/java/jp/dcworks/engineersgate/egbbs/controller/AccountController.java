@@ -28,7 +28,7 @@ import lombok.extern.log4j.Log4j2;
 @RequestMapping("/account")
 public class AccountController {
 
-	/** ユーザー関連サービスクラス. */
+	/** ユーザー関連サービスクラス。 */
 	@Autowired
 	private UsersService usersService;
 
@@ -110,7 +110,6 @@ public class AccountController {
 	 * @param isSuccess 正常の遷移であるか、否か。（true.正常、false.不正アクセス）
 	 * @param result バリデーション結果
 	 * @param redirectAttributes リダイレクト時に使用するオブジェクト
-	 * @return
 	 */
 	@GetMapping("/complete")
 	public String complete(@ModelAttribute("requestAccount") RequestAccount requestAccount,
@@ -120,7 +119,7 @@ public class AccountController {
 
 		log.info("アカウント作成完了画面のアクションが呼ばれました。");
 
-		// 不正アクセスはトップへリダイレクト。
+		// 不正アクセスはトップへリダイレクト。（※直接URLを叩いての不正アクセスを制御。）
 		if (!BooleanUtils.toBoolean(isSuccess)) {
 
 			log.warn("不正なアクセスがありました。：requestAccount={}", requestAccount);
