@@ -116,7 +116,7 @@ public class TopicController extends AppController {
 		Topics topics = topicsService.findTopics(topicsId);
 
 		if (topics == null) {
-			// TODO tomo-sato エラーメッセージ
+			// トピックが取得できない場合は、Not Found。
 			throw new AppNotFoundException();
 		}
 
