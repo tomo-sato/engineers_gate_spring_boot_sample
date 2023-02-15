@@ -25,10 +25,10 @@
       <div class="row">
         <div class="col-lg-12">
 
-          <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <div th:if="${isSuccess == true}" class="alert alert-success alert-dismissible fade show" role="alert">
             <div>
               <i class="bi bi-check-circle me-1"></i>
-              A simple success alert—check it out!
+              トピックを投稿しました。
               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
           </div>
@@ -54,10 +54,10 @@
             <div class="card-body">
               <h5 class="card-title">コメント</h5>
 
-              <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <div>
+              <div th:if="${validationErrors != null}" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <div th:each="error : ${validationErrors.getAllErrors()}">
                   <i class="bi bi-exclamation-octagon me-1"></i>
-                  A simple danger alert with icon—check it out!
+                  <span th:text="${error.getDefaultMessage()}">エラーメッセージ</span>
                 </div>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
               </div>

@@ -6,10 +6,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * ログインチェックを行う場合に使用するマーカーアノテーション.
- * <p>
+ * ログインチェックを行う場合に使用するマーカーアノテーション。
  * ※クラス、メソッドどちらでも設定可能。
- * </p>
  *
  * @author tomo-sato
  */

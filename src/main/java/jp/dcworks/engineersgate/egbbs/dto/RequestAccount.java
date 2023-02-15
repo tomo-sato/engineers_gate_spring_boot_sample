@@ -14,9 +14,6 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public class RequestAccount extends DtoBase {
 
-	/** ID */
-	private Long id;
-
 	/** お名前 */
 	@NotBlank(message = "お名前を入力してください。")
 	@Size(max = 32, message = "お名前は最大32文字です。")

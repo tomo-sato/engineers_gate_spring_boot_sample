@@ -1,5 +1,6 @@
 package jp.dcworks.engineersgate.egbbs.controller;
 
+import org.apache.commons.lang3.BooleanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -88,6 +89,8 @@ public class TopicController extends AppController {
 		// データ登録処理
 		Topics topics = topicsService.save(requestTopic, usersId);
 
+		redirectAttributes.addFlashAttribute("isSuccess", "true");
+
 		return "redirect:/topic/detail/" + StringUtil.toString(topics.getId(), StringUtil.BLANK);
 	}
 
@@ -95,10 +98,13 @@ public class TopicController extends AppController {
 	 * [POST]トピック詳細アクション。
 	 *
 	 * @param id トピックID
+	 * @param isSuccess コメント投稿完了からの正常の遷移であるか、否か。（true.正常）
 	 * @param model 画面にデータを送るためのオブジェクト
 	 */
 	@GetMapping("/detail/{id}")
-	public String detail(@PathVariable Long id, Model model) {
+	public String detail(@PathVariable Long id,
+			@ModelAttribute("isSuccess") String isSuccess,
+			Model model) {
 
 		log.info("トピック詳細画面のアクションが呼ばれました。");
 
@@ -115,6 +121,7 @@ public class TopicController extends AppController {
 		}
 
 		model.addAttribute("topics", topics);
+		model.addAttribute("isSuccess", BooleanUtils.toBoolean(isSuccess));
 
 		return "topic/detail";
 	}

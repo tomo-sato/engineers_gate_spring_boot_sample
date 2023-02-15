@@ -13,6 +13,7 @@ import lombok.Data;
 
 /**
  * Entity基底クラス。
+ * ※共通のカラムを定義する。
  *
  * @author tomo-sato
  */

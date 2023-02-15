@@ -5,7 +5,7 @@ import java.io.Serializable;
 import lombok.Data;
 
 /**
- * DTO基底クラス.
+ * DTO基底クラス。
  *
  * @author tomo-sato
  */

@@ -17,13 +17,14 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class AppConfig implements WebMvcConfigurer {
 
+	/** 登録したいインターセプター。リクエストの前後を中継する。 */
 	@Autowired
 	private AppIntercepter<?> appInterceptor;
 
-	/** インターセプターで含めるpathパターン. */
+	/** インターセプターで含めるpathパターン。 */
 	private static final String[] INCLUDE_PATTERNS = {"/**"};
 
-	/** インターセプターで除外するpathパターン. */
+	/** インターセプターで除外するpathパターン。 */
 	private static final String[] EXCLUDE_PATTERNS = {"/assets/**"};
 
 	@Override

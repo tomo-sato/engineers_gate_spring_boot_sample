@@ -25,10 +25,8 @@ import jp.dcworks.engineersgate.egbbs.entity.Users;
 import lombok.extern.log4j.Log4j2;
 
 /**
- * アプリケーション中継処理.
- * <p>
+ * アプリケーション中継処理。
  * ※クラス、メソッドどちらの設定でも呼び出し可能なよう実装する。
- * </p>
  *
  * @see 参考サイト：<a href="https://b1san-blog.com/post/spring/spring-interceptor/">【Spring Boot】Interceptorによる共通処理</a>
  * @author tomo-sato
@@ -37,11 +35,11 @@ import lombok.extern.log4j.Log4j2;
 @Component
 public class AppIntercepter<A> implements HandlerInterceptor {
 
-	/** セッション情報. */
+	/** セッション情報。 */
 	@Autowired
 	private HttpSession session;
 
-	/** 処理開始時間を保持 */
+	/** 処理開始時間を保持。 */
 	private Date startTime;
 
 	@Override
@@ -80,7 +78,7 @@ public class AppIntercepter<A> implements HandlerInterceptor {
 	}
 
 	/**
-	 * Controller名を取得する.
+	 * Controller名を取得する。
 	 */
 	private static String getControllerUri(String requestUri) {
 		String[] uriItems = requestUri.split("/");
@@ -130,16 +128,13 @@ public class AppIntercepter<A> implements HandlerInterceptor {
 			long elapsed = elapsedTime.getTime() - startTime.getTime();
 
 			// ビューのレンダリング後に行いたい処理を記述する。
-			log.info(
-					"▲▲▲ [アプリケーション中継]コントローラ処理完了、ビューのレンダリング後（共通） ▲▲▲：経過時間(" + elapsed + "ms)：" + requestUri);
+			log.info("▲▲▲ [アプリケーション中継]コントローラ処理完了、ビューのレンダリング後（共通） ▲▲▲：経過時間(" + elapsed + "ms)：" + requestUri);
 		}
 	}
 
 	/**
-	 * handlerに{@link jp.co.bookoff.loyalty.mgr.intercepter.annotation.CheckReadPermission}アノテーションが付与されているか否か.
-	 * <p>
+	 * handlerに{@link jp.co.bookoff.loyalty.mgr.intercepter.annotation.CheckReadPermission}アノテーションが付与されているか否か。
 	 * クラスと、メソッドに対してチェック処理を行う。
-	 * </p>
 	 *
 	 * @param handler ハンドラ
 	 * @return true.付与されている。false.付与されていない。
@@ -167,7 +162,7 @@ public class AppIntercepter<A> implements HandlerInterceptor {
 	}
 
 	/**
-	 * 引数のparameterMapから文字列を生成する.
+	 * 引数のparameterMapから文字列を生成する。
 	 *
 	 * @param parameterMap 文字列生成対象のオブジェクト
 	 * @return 引数で指定されたparameterMapオブジェクトの文字列。

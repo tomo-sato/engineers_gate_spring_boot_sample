@@ -3,7 +3,7 @@ package jp.dcworks.engineersgate.egbbs.util;
 import java.util.Objects;
 
 /**
- * 文字列操作に関する機能を提供します.
+ * 文字列操作に関する機能を提供します。
  *
  * @author tomo-sato
  */
