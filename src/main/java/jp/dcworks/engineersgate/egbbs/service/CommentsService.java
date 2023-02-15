@@ -35,4 +35,17 @@ public class CommentsService {
 		topics.setBody(requestTopicComment.getBody());
 		return repository.save(topics);
 	}
+
+	/**
+	 * コメントノ削除処理を行う。
+	 *
+	 * @param id コメントID
+	 * @param usersId ユーザーID
+	 * @param topicsId トピックID
+	 */
+	public void delete(Long id, Long usersId, Long topicsId) {
+		log.info("コメントを削除します。：id={}, usersId={}, topicsId={}", id, usersId, topicsId);
+
+		repository.deleteByIdAndUsersIdAndTopicsId(id, usersId, topicsId);
+	}
 }

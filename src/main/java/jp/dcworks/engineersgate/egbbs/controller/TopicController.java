@@ -97,12 +97,12 @@ public class TopicController extends AppController {
 	/**
 	 * [POST]トピック詳細アクション。
 	 *
-	 * @param id トピックID
+	 * @param topicsId トピックID
 	 * @param isSuccess コメント投稿完了からの正常の遷移であるか、否か。（true.正常）
 	 * @param model 画面にデータを送るためのオブジェクト
 	 */
-	@GetMapping("/detail/{id}")
-	public String detail(@PathVariable Long id,
+	@GetMapping("/detail/{topicsId}")
+	public String detail(@PathVariable Long topicsId,
 			@ModelAttribute("isSuccess") String isSuccess,
 			Model model) {
 
@@ -113,7 +113,7 @@ public class TopicController extends AppController {
 		}
 
 		// トピック情報を取得する。
-		Topics topics = topicsService.findTopics(id);
+		Topics topics = topicsService.findTopics(topicsId);
 
 		if (topics == null) {
 			// TODO tomo-sato エラーメッセージ
@@ -159,6 +159,27 @@ public class TopicController extends AppController {
 		// コメント登録処理
 		commentsService.save(requestTopicComment, usersId, topicsId);
 
+		return "redirect:/topic/detail/" + StringUtil.toString(topicsId, StringUtil.BLANK);
+	}
+
+	/**
+	 * [GET]コメント削除アクション。
+	 *
+	 * @param topicsId トピックID
+	 * @param commentsId コメントID
+	 */
+	@GetMapping("/comment/delete/{topicsId}/{commentsId}")
+	public String commentDelete(@PathVariable Long topicsId, @PathVariable Long commentsId) {
+
+		log.info("コメント削除処理のアクションが呼ばれました。：commentsId={}", commentsId);
+
+		// ログインユーザー情報取得（※自分が投稿したコメント以外を削除しない為の制御。）
+		Long usersId = getUsersId();
+
+		// コメント削除処理
+		commentsService.delete(commentsId, usersId, topicsId);
+
+		// 入力画面へリダイレクト。
 		return "redirect:/topic/detail/" + StringUtil.toString(topicsId, StringUtil.BLANK);
 	}
 }

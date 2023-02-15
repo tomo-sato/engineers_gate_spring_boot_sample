@@ -88,13 +88,11 @@
               [[${comments.body}]]
             </div>
             <div class="card-footer" th:if="${users.id == comments.users.id}">
-              <form>
-                <div class="row mb-3">
-                  <div class="col-sm-4">
-                    <button type="submit" class="btn btn-danger">削除する</button>
-                  </div>
+              <div class="row mb-3">
+                <div class="col-sm-4">
+                  <a th:href="@{/topic/comment/delete/{topicsId}/{commentsId}(topicsId=${topics.id}, commentsId=${comments.id})}" class="btn btn-danger">削除する</a>
                 </div>
-              </form><!-- End General Form Elements -->
+              </div>
             </div>
           </div>
 
