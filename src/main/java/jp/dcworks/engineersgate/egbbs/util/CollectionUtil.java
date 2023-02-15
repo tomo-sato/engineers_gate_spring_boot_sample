@@ -3,11 +3,14 @@ package jp.dcworks.engineersgate.egbbs.util;
 import java.util.Collection;
 import java.util.Map;
 
+import org.springframework.stereotype.Component;
+
 /**
  * Collection操作に関する機能を提供します。
  *
  * @author tomo-sato
  */
+@Component
 public class CollectionUtil {
 
 	/**

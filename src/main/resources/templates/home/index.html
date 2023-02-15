@@ -23,10 +23,14 @@
             <div class="card-body">
               <h5 class="card-title">トピック一覧</h5>
 
-              <a href="/topic/input" class="btn btn-primary">トピックを投稿する</a>
+              <p><a href="/topic/input" class="btn btn-primary">トピックを投稿する</a></p>
 
               <!-- Table with stripped rows -->
-              <table class="table table-striped">
+              <div th:if="${@collectionUtil.isEmpty(topicsList)}" class="alert alert-warning alert-dismissible fade show" role="alert">
+                <i class="bi bi-exclamation-triangle me-1"></i>
+                まだトピックは投稿されていません。
+              </div>
+              <table th:if="${@collectionUtil.isNotEmpty(topicsList)}" class="table table-striped">
                 <thead>
                   <tr>
                     <th scope="col">No.</th>
@@ -40,7 +44,7 @@
                   <tr th:each="topics:${topicsList}">
                     <th scope="row"><a th:href="@{/topic/detail/{id}(id=${topics.id})}" th:text="${topics.id}">1</a></th>
                     <td><a th:href="@{/topic/detail/{id}(id=${topics.id})}" th:text="${topics.title}">Brandon Jacob</a></td>
-                    <td><a th:href="@{/topic/detail/{id}(id=${topics.id})}" th:text="${topics.body}">Designer</a></td>
+                    <td><a th:href="@{/topic/detail/{id}(id=${topics.id})}" th:text="${@stringUtil.abbreviate(topics.body, 40)}">Designer</a></td>
                     <td th:text="${topics.users.name}">佐藤太郎</td>
                     <td th:text="${#dates.format(topics.created, 'yyyy-MM-dd HH:mm:ss')}">2016-05-25</td>
                   </tr>

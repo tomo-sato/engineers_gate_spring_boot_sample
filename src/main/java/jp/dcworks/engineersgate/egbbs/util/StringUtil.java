@@ -4,6 +4,7 @@ import java.util.Objects;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.util.HtmlUtils;
+import org.thymeleaf.util.StringUtils;
 
 /**
  * 文字列操作に関する機能を提供します。
@@ -87,5 +88,19 @@ public class StringUtil {
 
 		String tag = isXhtml ? "<br />" : "<br>";
 		return escapeStr.replaceAll("\\r\\n|\\n\\r|\\n|\r", tag);
+	}
+
+	/**
+	 * 省略表示を行います。
+	 *
+	 * @param str 省略したい文字
+	 * @param maxWidth 表示時の最大文字数。（maxWidthには"..."も含まれるため4以上にして下さい。4未満の場合、4を設定した結果を返します。）
+	 * @return 省略された文字列を返却します。
+	 */
+	public static String abbreviate(String str, int maxWidth) {
+		if (maxWidth < 4) {
+			maxWidth = 4;
+		}
+		return StringUtils.abbreviate(str, maxWidth);
 	}
 }
