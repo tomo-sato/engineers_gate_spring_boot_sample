@@ -36,7 +36,7 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">[[${topics.title}]]<span> / [[${topics.users.name}]]</span></h5>
-              [[${topics.body}]]
+              <span th:utext="${@stringUtil.nl2br(topics.body)}"></span>
             </div>
             <div class="card-footer" th:if="${users.id == topics.users.id}">
               <form action="pages-input.html">
@@ -84,7 +84,7 @@
           <div class="card" th:each="comments:${topics.commentsList}">
             <div class="card-body">
               <h5 class="card-title"><span>[[${comments.users.name}]]</span></h5>
-              [[${comments.body}]]
+                <span th:utext="${@stringUtil.nl2br(comments.body)}"></span>
             </div>
             <div class="card-footer" th:if="${users.id == comments.users.id}">
               <div class="row mb-3">
