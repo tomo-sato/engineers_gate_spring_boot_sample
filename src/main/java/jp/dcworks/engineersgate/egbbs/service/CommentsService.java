@@ -1,5 +1,7 @@
 package jp.dcworks.engineersgate.egbbs.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,7 +39,7 @@ public class CommentsService {
 	}
 
 	/**
-	 * コメントノ削除処理を行う。
+	 * コメントの削除処理を行う。
 	 *
 	 * @param id コメントID
 	 * @param usersId ユーザーID
@@ -47,5 +49,14 @@ public class CommentsService {
 		log.info("コメントを削除します。：id={}, usersId={}, topicsId={}", id, usersId, topicsId);
 
 		repository.deleteByIdAndUsersIdAndTopicsId(id, usersId, topicsId);
+	}
+
+	/**
+	 * コメントの削除処理を行う。
+	 *
+	 * @param commentsList コメントリスト
+	 */
+	public void delete(List<Comments> commentsList) {
+		repository.deleteAll(commentsList);
 	}
 }

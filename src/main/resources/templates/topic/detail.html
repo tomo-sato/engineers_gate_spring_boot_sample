@@ -42,8 +42,7 @@
               <form action="pages-input.html">
                 <div class="row mb-3">
                   <div class="col-sm-4">
-                    <button type="submit" class="btn btn-primary">編集する</button>
-                    <button type="submit" class="btn btn-danger">削除する</button>
+                    <a th:href="@{/topic/delete/{topicsId}(topicsId=${topics.id})}" class="btn btn-danger">削除する</a>
                   </div>
                 </div>
               </form><!-- End General Form Elements -->

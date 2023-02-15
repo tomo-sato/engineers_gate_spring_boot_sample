@@ -5,9 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import jp.dcworks.engineersgate.egbbs.core.AppNotFoundException;
 import jp.dcworks.engineersgate.egbbs.dto.RequestTopic;
+import jp.dcworks.engineersgate.egbbs.entity.Comments;
 import jp.dcworks.engineersgate.egbbs.entity.Topics;
 import jp.dcworks.engineersgate.egbbs.repository.TopicsRepository;
+import jp.dcworks.engineersgate.egbbs.util.CollectionUtil;
 import lombok.extern.log4j.Log4j2;
 
 /**
@@ -22,6 +25,10 @@ public class TopicsService {
 	/** リポジトリインターフェース。 */
 	@Autowired
 	private TopicsRepository repository;
+
+	/** コメント関連サービスクラス。 */
+	@Autowired
+	private CommentsService commentsService;
 
 	/**
 	 * トピック全件取得する。
@@ -60,5 +67,31 @@ public class TopicsService {
 		topics.setTitle(requestTopic.getTitle());
 		topics.setBody(requestTopic.getBody());
 		return repository.save(topics);
+	}
+
+	/**
+	 * トピックの削除処理を行う。
+	 *
+	 * @param topicsId トピックID
+	 * @param usersId ユーザーID
+	 */
+	public void delete(Long topicsId, Long usersId) {
+		log.info("トピックを削除します。：topicsId={}, usersId={}", topicsId, usersId);
+
+		// 対象のトピックを検索。
+		Topics topics = repository.findByIdAndUsersId(topicsId, usersId).orElse(null);
+		if (topics == null) {
+			// データが取得できない場合は不正操作の為エラー。（404エラーとする。）
+			throw new AppNotFoundException();
+		}
+
+		// トピックにぶら下がってるコメントを削除。
+		List<Comments> commentsList = topics.getCommentsList();
+		if (CollectionUtil.isNotEmpty(commentsList)) {
+			commentsService.delete(commentsList);
+		}
+
+		// トピックを削除。
+		repository.delete(topics);
 	}
 }

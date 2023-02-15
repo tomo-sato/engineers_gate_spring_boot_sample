@@ -127,6 +127,26 @@ public class TopicController extends AppController {
 	}
 
 	/**
+	 * [GET]トピック削除アクション。
+	 *
+	 * @param topicsId トピックID
+	 */
+	@GetMapping("/delete/{topicsId}")
+	public String delete(@PathVariable Long topicsId) {
+
+		log.info("トピック削除処理のアクションが呼ばれました。：topicsId={}", topicsId);
+
+		// ログインユーザー情報取得（※自分が投稿したコメント以外を削除しない為の制御。）
+		Long usersId = getUsersId();
+
+		// コメント削除処理
+		topicsService.delete(topicsId, usersId);
+
+		// ホーム画面へリダイレクト。
+		return "redirect:/home";
+	}
+
+	/**
 	 * [POST]コメント投稿アクション。
 	 *
 	 * @param topicsId トピックID
@@ -171,7 +191,7 @@ public class TopicController extends AppController {
 	@GetMapping("/comment/delete/{topicsId}/{commentsId}")
 	public String commentDelete(@PathVariable Long topicsId, @PathVariable Long commentsId) {
 
-		log.info("コメント削除処理のアクションが呼ばれました。：commentsId={}", commentsId);
+		log.info("コメント削除処理のアクションが呼ばれました。：topicsId={}, commentsId={}", topicsId, commentsId);
 
 		// ログインユーザー情報取得（※自分が投稿したコメント以外を削除しない為の制御。）
 		Long usersId = getUsersId();
