@@ -87,8 +87,16 @@ src
 ### ログイン画面
 
 ログイン機能を提供します。
+
 <img src="https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/doc/screenshot/login/index_001.jpg" width="75%">
+
 - 「ログインID」「パスワード」を入力し、ログインします。
+- 「ログインID」「パスワード」は必須入力です。
 
 <img src="https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/doc/screenshot/login/index_002.jpg" width="75%">
+
+- 「ログインID」「パスワード」を入力しなかった場合、jsでバリデーションを行いエラーとします。
+
 <img src="https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/doc/screenshot/login/index_003.jpg" width="75%">
+
+- HTMLの改ざんを考慮し、jsのバリデーションを改ざんされた場合、サーバサイドでバリデーションを行います。
