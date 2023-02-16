@@ -108,7 +108,7 @@ public class TopicController extends AppController {
 
 		log.info("トピック詳細画面のアクションが呼ばれました。");
 
-		if (!model.containsAttribute("requestTopic")) {
+		if (!model.containsAttribute("requestTopicComment")) {
 			model.addAttribute("requestTopicComment", new RequestTopicComment());
 		}
 
