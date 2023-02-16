@@ -30,7 +30,7 @@ SpringBootでのWebアプリケーション作成において、<br>
 の流れになります。<br>
 詳しい手順は資料を用意しました。下記参照ください。
 
-手順書： [タイトル](https://github.com/tomo-sato/engineers_gate_spring_boot_sample){:target="_blank"}
+手順書： [タイトル](https://github.com/tomo-sato/engineers_gate_spring_boot_sample)
 
 
 ## 設計
@@ -43,7 +43,7 @@ SpringBootでのWebアプリケーション作成において、<br>
 - IDE：Eclipse 2022-12
 - Java：1.8.0_231
 - SpringBoot：3.0.2
-    - その他参照ライブラリは [build.gradle](https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/build.gradle){:target="_blank"} 参照
+    - その他参照ライブラリは [build.gradle](https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/build.gradle) 参照
 - MySQL：8.0.32
 
 ### DB設計
