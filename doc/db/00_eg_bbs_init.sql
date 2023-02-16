@@ -1,12 +1,12 @@
-/* ƒXƒL[ƒ}iDBjì¬ */
+/* ã‚¹ã‚­ãƒ¼ãƒžï¼ˆDBï¼‰ä½œæˆ */
 CREATE SCHEMA IF NOT EXISTS `eg_bbs` DEFAULT CHARACTER SET utf8 ;
 
-/* ƒ†[ƒU[ì¬ */
+/* ãƒ¦ãƒ¼ã‚¶ãƒ¼ä½œæˆ */
 CREATE USER 'eg_user'@'localhost' IDENTIFIED BY 'eg_pass';
 
-/* ƒ†[ƒU[Œ ŒÀÝ’è */
+/* ãƒ¦ãƒ¼ã‚¶ãƒ¼æ¨©é™è¨­å®š */
 GRANT ALL PRIVILEGES ON eg_bbs.* TO 'eg_user'@'localhost';
 FLUSH PRIVILEGES;
 
-/* ƒ†[ƒU[íœi¦ˆ×”OAÁ‚·•û–@BƒRƒƒ“ƒg‚ðŠO‚µ‚ÄŽg—p‚·‚éBj */
+/* ãƒ¦ãƒ¼ã‚¶ãƒ¼å‰Šé™¤ï¼ˆâ€»ç‚ºå¿µã€æ¶ˆã™æ–¹æ³•ã€‚ã‚³ãƒ¡ãƒ³ãƒˆã‚’å¤–ã—ã¦ä½¿ç”¨ã™ã‚‹ã€‚ï¼‰ */
 -- DROP USER 'eg_user'@'localhost';
