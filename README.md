@@ -51,3 +51,7 @@ SpringBootでのWebアプリケーション作成において、<br>
     - その他参照ライブラリは [build.gradle](https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/build.gradle) 参照
 - MySQL：8.0.32
 
+### DB設計
+
+[![ER図](https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/doc/db/eg_bbs.png)]
+
