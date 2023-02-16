@@ -87,7 +87,8 @@ src
 ### ログイン画面
 
 ログイン機能を提供します。
+<img src="https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/doc/screenshot/login/index_001.jpg" width="75%">
+- 「ログインID」「パスワード」を入力し、ログインします。
 
-![ER図](https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/doc/screenshot/login/index_001.jpg)
-![ER図](https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/doc/screenshot/login/index_002.jpg)
-![ER図](https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/doc/screenshot/login/index_003.jpg)
+<img src="https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/doc/screenshot/login/index_002.jpg" width="75%">
+<img src="https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/doc/screenshot/login/index_003.jpg" width="75%">
