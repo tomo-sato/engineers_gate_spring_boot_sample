@@ -25,6 +25,7 @@ SpringBootでのWebアプリケーション作成において、<br>
 1. git clone する。
 1. Eclipseにプロジェクトをインポートする。
 1. DBを作成する。
+1. アプリのDB接続設定（ [application.properties](https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/src/main/resources/application.properties) ）を確認する。
 1. Eclipseでプロジェクトを起動する。
 
 の流れになります。<br>
