@@ -31,7 +31,7 @@ SpringBootでのWebアプリケーション作成において、<br>
 の流れになります。<br>
 詳しい手順は資料を用意しました。下記参照ください。
 
-手順書： [EngineersGate__SpringBoot_サンプルアプリケーションセットアップ.pdf](https://github.com/tomo-sato/engineers_gate_spring_boot_sample/doc/EngineersGate__SpringBoot_サンプルアプリケーションセットアップ.pdf)
+手順書： [EngineersGate__SpringBoot_サンプルアプリケーションセットアップ.pdf](https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/doc/EngineersGate__SpringBoot_%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97.pdf)
 
 
 ## 設計
