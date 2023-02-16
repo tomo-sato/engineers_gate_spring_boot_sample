@@ -1,4 +1,4 @@
-# Engineers Gate SpringBoot サンプルアプリケーション
+# EngineersGate SpringBoot サンプルアプリケーション
 
 Engineers Gateの教材としてSpringBootで作成した、掲示板サイトになります。
 
