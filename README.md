@@ -35,7 +35,7 @@ SpringBootでのWebアプリケーション作成において、<br>
 
 ## 設計
 
-使用した技術、実行環境は以下になります。
+使用した技術、実行環境及び設計は以下になります。
 
 ### 実行環境
 
@@ -49,6 +49,36 @@ SpringBootでのWebアプリケーション作成において、<br>
 ### DB設計
 
 ![ER図](https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/doc/db/eg_bbs.png)
+
+### パッケージ構成
+
+```
+src
+└─main
+    ├─java
+    │  └─jp
+    │      └─dcworks
+    │          └─engineersgate
+    │              └─egbbs
+    │                  ├─controller      # コントローラクラスの管理。
+    │                  ├─core            # コアクラスの管理。アプリ基底処理及び、設定に関する処理のプログラム群。
+    │                  │  └─annotation
+    │                  ├─dto             # DTOクラスの管理。入力フォーム関連。
+    │                  ├─entity          # DBエンティティクラスの管理。
+    │                  ├─repository      # DBアクセスリポジトリ。
+    │                  ├─service         # リポジトリをラップしたサービスクラス等。他、必要に応じて外部連携等コンポーネント管理。
+    │                  └─util            # ユーティリティクラスの管理。
+    └─resources
+        ├─static                          # 静的ファイル。js、css等。
+        │  └─assets
+        └─templates                       # テンプレートファイル。
+            ├─account
+            ├─common
+            ├─error
+            ├─home
+            ├─login
+            └─topic
+```
 
 
 ## 使い方
