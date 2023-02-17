@@ -129,7 +129,7 @@ src
 - 正常に入力が行われた場合、完了画面へ遷移しアカウントが登録されます。
 
 
-### ホーム画面（トピック一覧）
+### ホーム画面（トピック一覧画面）
 
 トピック一覧参照機能を提供します。
 
@@ -155,4 +155,26 @@ src
 <img src="https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/doc/screenshot/topic/input_002.jpg" width="75%">
 
 - 「タイトル」「本文」は必須入力です。
+- 入力内容に誤りがある場合、サーバサイドでバリデーションエラーとします。
+
+<img src="https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/doc/screenshot/topic/detail_001.jpg" width="75%">
+
+- トピックの投稿が正常に完了した場合、トピック詳細画面へ遷移します。
+- また、トピック投稿完了のメッセージを表示します。
+
+
+### トピック詳細画面（コメント投稿画面）
+
+投稿されたトピックの内容表示機能を提供します。<br>
+また、トピックに対してコメントを投稿する機能を提供します。
+
+<img src="https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/doc/screenshot/topic/detail_002.jpg" width="75%">
+
+- 投稿者のトピックが閲覧できます。
+- ログインしているユーザーがトピックの投稿者であった場合、トピックの削除ができます。
+- トピックに対してコメントを投稿することができます。
+
+<img src="https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/doc/screenshot/topic/detail_003.jpg" width="75%">
+
+- コメントの投稿は、コメントの入力を必須としています。
 - 入力内容に誤りがある場合、サーバサイドでバリデーションエラーとします。
