@@ -34,7 +34,7 @@
                   <form class="row g-3 needs-validation" method="post" novalidate th:action="@{/account/regist}" th:object="${requestAccount}">
                     <div class="col-12">
                       <label for="yourName" class="form-label">お名前</label>
-                      <input type="text" name="name" class="form-control" id="yourName" required th:field="*{name}">
+                      <input type="text" name="name" class="form-control" id="yourName" maxlength="32" required th:field="*{name}">
                       <div class="invalid-feedback">お名前を入力してください。</div>
                     </div>
 
@@ -42,14 +42,14 @@
                       <label for="yourUsername" class="form-label">ログインID</label>
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="text" name="loginId" class="form-control" id="yourUsername" required th:field="*{loginId}">
+                        <input type="text" name="loginId" class="form-control" id="yourUsername" maxlength="32" required th:field="*{loginId}">
                         <div class="invalid-feedback">ログインIDを入力してください。</div>
                       </div>
                     </div>
 
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">パスワード</label>
-                      <input type="password" name="password" class="form-control" id="yourPassword" required th:field="*{password}">
+                      <input type="password" name="password" class="form-control" id="yourPassword" maxlength="32" required th:field="*{password}">
                       <div class="invalid-feedback">パスワードを入力してください。</div>
                     </div>
 

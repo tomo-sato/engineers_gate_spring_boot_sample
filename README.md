@@ -100,3 +100,29 @@ src
 <img src="https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/doc/screenshot/login/index_003.jpg" width="75%">
 
 - HTMLの改ざんを考慮し、jsのバリデーションを改ざんされた場合、サーバサイドでバリデーションを行います。
+
+### アカウント作成画面
+
+アカウント作成機能を提供します。
+
+<img src="https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/doc/screenshot/account/index_001.jpg" width="75%">
+
+- 「お名前」「ログインID」「パスワード」を入力し、ログインします。
+- 「お名前」「ログインID」「パスワード」は必須入力です。
+- 「お名前」「ログインID」「パスワード」は最大文字数32文字です。
+
+<img src="https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/doc/screenshot/account/index_002.jpg" width="75%">
+
+- 「お名前」「ログインID」「パスワード」を入力しなかった場合、jsでバリデーションを行いエラーとします。
+
+<img src="https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/doc/screenshot/account/index_003.jpg" width="75%">
+
+- HTMLの改ざんを考慮し、jsのバリデーションを改ざんされた場合、サーバサイドでバリデーションを行います。
+
+<img src="https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/doc/screenshot/account/index_004.jpg" width="75%">
+
+- すでに登録されている場合（同一の「ログインID」が存在する場合）、サーバサイドでバリデーションを行います。
+
+<img src="https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/doc/screenshot/account/complete_001.jpg" width="75%">
+
+- 正常に入力が行われた場合、完了画面へ遷移しアカウントが登録されます。
