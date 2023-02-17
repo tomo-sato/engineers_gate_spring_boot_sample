@@ -183,3 +183,16 @@ src
 <img src="https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/doc/screenshot/topic/detail_004.jpg" width="75%">
 
 - ログインしているユーザーのコメントであった場合、コメントの削除ができます。
+
+
+### エラー画面
+
+ページが存在しない、システム内で不具合が発生した場合のエラー画面を提供します。
+
+<img src="https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/doc/screenshot/error/404.jpg" width="75%">
+
+- 指定したURLの先にページが存在しない場合表示します。
+
+<img src="https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/doc/screenshot/error/500.jpg" width="75%">
+
+- システムの不具合等により、予期せぬ例外が発生した場合表示します。
