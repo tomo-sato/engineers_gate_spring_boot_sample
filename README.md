@@ -172,9 +172,14 @@ src
 
 - 投稿者のトピックが閲覧できます。
 - ログインしているユーザーがトピックの投稿者であった場合、トピックの削除ができます。
+    - トピックを削除した場合、トピックにぶら下がるコメントも一緒に削除されます。
 - トピックに対してコメントを投稿することができます。
 
 <img src="https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/doc/screenshot/topic/detail_003.jpg" width="75%">
 
 - コメントの投稿は、コメントの入力を必須としています。
 - 入力内容に誤りがある場合、サーバサイドでバリデーションエラーとします。
+
+<img src="https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/doc/screenshot/topic/detail_003.jpg" width="75%">
+
+- ログインしているユーザーのコメントであった場合、コメントの削除ができます。
