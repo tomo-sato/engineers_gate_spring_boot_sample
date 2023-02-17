@@ -180,6 +180,6 @@ src
 - コメントの投稿は、コメントの入力を必須としています。
 - 入力内容に誤りがある場合、サーバサイドでバリデーションエラーとします。
 
-<img src="https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/doc/screenshot/topic/detail_003.jpg" width="75%">
+<img src="https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/doc/screenshot/topic/detail_004.jpg" width="75%">
 
 - ログインしているユーザーのコメントであった場合、コメントの削除ができます。
