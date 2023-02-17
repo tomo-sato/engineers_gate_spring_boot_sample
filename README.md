@@ -148,11 +148,11 @@ src
 
 トピック投稿機能を提供します。
 
-<img src="https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/doc/screenshot/topic/index_001.jpg" width="75%">
+<img src="https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/doc/screenshot/topic/input_001.jpg" width="75%">
 
 - 「タイトル」「本文」を入力し、トピックを投稿します。
 
-<img src="https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/doc/screenshot/topic/index_002.jpg" width="75%">
+<img src="https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/doc/screenshot/topic/input_002.jpg" width="75%">
 
 - 「タイトル」「本文」は必須入力です。
 - 入力内容に誤りがある場合、サーバサイドでバリデーションエラーとします。
