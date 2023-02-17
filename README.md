@@ -101,6 +101,7 @@ src
 
 - HTMLの改ざんを考慮し、jsのバリデーションを改ざんされた場合、サーバサイドでバリデーションを行います。
 
+
 ### アカウント作成画面
 
 アカウント作成機能を提供します。
@@ -126,3 +127,18 @@ src
 <img src="https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/doc/screenshot/account/complete_001.jpg" width="75%">
 
 - 正常に入力が行われた場合、完了画面へ遷移しアカウントが登録されます。
+
+
+### ホーム画面（トピック一覧）
+
+トピック一覧参照機能を提供します。
+
+<img src="https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/doc/screenshot/home/index_001.jpg" width="75%">
+
+- トピックが投稿されていない状態ではアラートを表示します。
+- 「トピックを投稿する」ボタン押下で、トピック投稿画面に遷移します。
+
+<img src="https://github.com/tomo-sato/engineers_gate_spring_boot_sample/blob/main/doc/screenshot/home/index_002.jpg" width="75%">
+
+- トピックが投稿されている状態では、「タイトル」「本文」「ニックネーム」「投稿日時」を表示します。
+- 登録済みのトピック「No.」「タイトル」「本文」のリンクよりトピック詳細画面へ遷移します。
