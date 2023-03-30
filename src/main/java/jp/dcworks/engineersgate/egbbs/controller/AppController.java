@@ -35,4 +35,21 @@ public class AppController {
 
 		return users.getId();
 	}
+
+	/**
+	 * セッションに格納しているユーザー情報を取得する。
+	 *
+	 * @return ユーザー情報（※セッション情報が取得出来ない場合は、nullを返す。）
+	 */
+	protected Users getUsers() {
+		// ユーザー情報の取得。
+		Users users = (Users) session.getAttribute(AppConst.SESSION_KEY_LOGIN_INFO);
+
+		if (users == null) {
+			log.info("セッションにユーザー情報は保存されていません。");
+			return null;
+		}
+
+		return users;
+	}
 }

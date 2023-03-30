@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<!-- ======= Head ======= -->
+<div th:replace="~{common/shoulder_fragment::head(title = 'SNSサイト - プロフィール')}"></div>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <div th:replace="~{common/shoulder_fragment::header}"></div>
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>プロフィール</h1>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+
+          <div class="card">
+            <div class="card-body pt-3">
+
+              <!-- Profile Edit Form -->
+              <form>
+                <div class="row mb-3">
+                  <label for="profileImage" class="col-md-4 col-lg-4 col-form-label">プロフィール画像</label>
+                  <div class="col-md-8 col-lg-8">
+                    <span id="previewbox">
+                      <img src="/assets/img/profile-img.jpg" alt="Profile">
+                    </span>
+                    <div class="pt-2">
+                      <label>
+                        <i class="bi bi-upload btn btn-primary btn-sm"></i>
+                        <input type="file" id="filesend" style="display: none;">
+                      </label>
+                      <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image" onclick="resetPreview();"><i class="bi bi-trash"></i></a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <label for="fullName" class="col-md-4 col-lg-4 col-form-label">名前</label>
+                  <div class="col-md-8 col-lg-8">
+                    <input name="fullName" type="text" class="form-control" id="fullName" value="佐藤太郎">
+                  </div>
+                </div>
+
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary">プロフィールを保存</button>
+                </div>
+              </form><!-- End Profile Edit Form -->
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <div th:replace="~{common/shoulder_fragment::footer}"></div>
+
+</body>
+</html>

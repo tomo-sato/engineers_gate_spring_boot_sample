@@ -2,12 +2,12 @@
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
 
 <!-- ======= Head ======= -->
-<div th:replace="common/shoulder_fragment::head(title = 'Home')"></div>
+<div th:replace="~{common/shoulder_fragment::head(title = 'Home')}"></div>
 
 <body>
 
   <!-- ======= Header ======= -->
-  <div th:replace="common/shoulder_fragment::header"></div>
+  <div th:replace="~{common/shoulder_fragment::header}"></div>
 
   <main id="main" class="main">
 
@@ -61,7 +61,7 @@
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <div th:replace="common/shoulder_fragment::footer"></div>
+  <div th:replace="~{common/shoulder_fragment::footer}"></div>
 
 </body>
 
