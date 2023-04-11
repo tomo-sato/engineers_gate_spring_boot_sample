@@ -359,7 +359,7 @@ function resetPreview(isSampleView = true) {
   if (isSampleView) {
     document.getElementById('filesend').value = '';
     var child = document.createElement('img');
-    child.src = '/assets/img/profile-img.jpg';
+    child.src = '/assets/img/profile-dummy.png';
     document.getElementById('previewbox').appendChild(child);
   }
 }

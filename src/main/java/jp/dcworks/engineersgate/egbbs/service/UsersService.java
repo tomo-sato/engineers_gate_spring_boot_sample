@@ -66,4 +66,13 @@ public class UsersService {
 		users.setName(requestAccount.getName());
 		repository.save(users);
 	}
+
+	/**
+	 * ユーザー登録処理を行う。
+	 *
+	 * @param requestAccount ユーザーDTO
+	 */
+	public void save(Users users) {
+		repository.save(users);
+	}
 }
