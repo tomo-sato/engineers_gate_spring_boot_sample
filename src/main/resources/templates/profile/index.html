@@ -22,6 +22,14 @@
           <div class="card">
             <div class="card-body pt-3">
 
+              <div th:if="${validationErrors != null}" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <div th:each="error : ${validationErrors.getAllErrors()}">
+                  <i class="bi bi-exclamation-octagon me-1"></i>
+                  <span th:text="${error.getDefaultMessage()}">エラーメッセージ</span>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+
               <!-- Profile Edit Form -->
               <form method="post" enctype="multipart/form-data" th:action="@{/profile/regist}" th:object="${requestModifyAccount}">
                 <div class="row mb-3">

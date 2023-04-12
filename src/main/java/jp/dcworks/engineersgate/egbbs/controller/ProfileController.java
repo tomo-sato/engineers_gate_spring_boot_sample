@@ -19,6 +19,7 @@ import jp.dcworks.engineersgate.egbbs.dto.RequestModifyAccount;
 import jp.dcworks.engineersgate.egbbs.entity.Users;
 import jp.dcworks.engineersgate.egbbs.service.StorageService;
 import jp.dcworks.engineersgate.egbbs.service.UsersService;
+import jp.dcworks.engineersgate.egbbs.util.StringUtil;
 import lombok.extern.log4j.Log4j2;
 
 /**
@@ -54,6 +55,14 @@ public class ProfileController extends AppController {
 		return "profile/index";
 	}
 
+	/**
+	 * [POST]アカウント編集アクション。
+	 *
+	 * @param requestModifyAccount 入力フォームの内容
+	 * @param profileFile プロフィール画像ファイル
+	 * @param result バリデーション結果
+	 * @param redirectAttributes リダイレクト時に使用するオブジェクト
+	 */
 	@PostMapping("/regist")
 	public String regist(@Validated @ModelAttribute RequestModifyAccount requestModifyAccount,
 			@RequestParam("profileFile") MultipartFile profileFile,
@@ -66,6 +75,20 @@ public class ProfileController extends AppController {
 		if (result.hasErrors()) {
 			// javascriptのバリデーションを改ざんしてリクエストした場合に通る処理。
 			log.warn("バリデーションエラーが発生しました。：requestModifyAccount={}, result={}", requestModifyAccount, result);
+
+			redirectAttributes.addFlashAttribute("validationErrors", result);
+			redirectAttributes.addFlashAttribute("requestModifyAccount", requestModifyAccount);
+
+			// 入力画面へリダイレクト。
+			return "redirect:/profile";
+		}
+
+		// ファイルチェックを行う。
+		if (!StorageService.isImageFile(profileFile)) {
+			log.warn("指定されたファイルは、画像ファイルではありません。：requestModifyAccount={}", requestModifyAccount);
+
+			// エラーメッセージをセット。
+			result.rejectValue("profileFileHidden", StringUtil.BLANK, "画像ファイルを指定してください。");
 
 			redirectAttributes.addFlashAttribute("validationErrors", result);
 			redirectAttributes.addFlashAttribute("requestModifyAccount", requestModifyAccount);
