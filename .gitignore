@@ -38,3 +38,7 @@ out/
 
 ### docker ###
 /docker_db/data/db
+
+### upload file ###
+/src/main/resources/static/assets/profileimg/
+!/src/main/resources/static/assets/profileimg/empty

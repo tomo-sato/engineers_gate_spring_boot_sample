@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.thymeleaf.util.StringUtils;
 
 import jp.dcworks.engineersgate.egbbs.core.annotation.LoginCheck;
 import jp.dcworks.engineersgate.egbbs.dto.RequestModifyAccount;
@@ -73,11 +74,22 @@ public class ProfileController extends AppController {
 			return "redirect:/profile";
 		}
 
+		// ユーザー検索を行う。
+		Users users = getUsers();
+
 		// ファイルアップロード処理。
 		String fileUri = storageService.store(profileFile);
 
-		// ユーザー検索を行う。（※「ログインID」で検索を行い、すでに登録済みの場合エラー。）
-		Users users = getUsers();
+		// fileUriが取得できない且つ、hiddenの値にファイルが設定されている場合は「設定済みのファイルが変更されていない状態」である為、hiddenの値で更新する。
+		if (StringUtils.isEmpty(fileUri) && !StringUtils.isEmpty(requestModifyAccount.getProfileFileHidden())) {
+			fileUri = requestModifyAccount.getProfileFileHidden();
+			// DBから取得したデータと比較し、改ざんされた値ではないことの確認。
+			if (!fileUri.equals(users.getIconUri())) {
+				// 改ざんの可能性がある場合はnullをセットしファイルをクリアする。
+				fileUri = null;
+			}
+		}
+
 		users.setName(requestModifyAccount.getName());
 		users.setIconUri(fileUri);
 		usersService.save(users);

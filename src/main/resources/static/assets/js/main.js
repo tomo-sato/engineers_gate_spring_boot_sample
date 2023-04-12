@@ -358,7 +358,9 @@ function resetPreview(isSampleView = true) {
   }
   if (isSampleView) {
     document.getElementById('filesend').value = '';
+    document.getElementById('filesendHidden').value = '';
     var child = document.createElement('img');
+    child.height = 120;   // プレビュー画像の高さ
     child.src = '/assets/img/profile-dummy.png';
     document.getElementById('previewbox').appendChild(child);
   }
