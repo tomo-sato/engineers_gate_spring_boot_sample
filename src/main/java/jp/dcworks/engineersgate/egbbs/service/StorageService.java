@@ -41,7 +41,7 @@ public class StorageService {
 			return null;
 		}
 
-		// 格納先のフルパス
+		// 格納先の相対パス
 		Path filePath = Paths.get("src/main/resources/static/assets/profileimg/" + fileName);
 
 		OutputStream stream = null;
