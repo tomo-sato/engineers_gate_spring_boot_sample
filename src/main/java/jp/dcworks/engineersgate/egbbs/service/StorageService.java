@@ -41,7 +41,7 @@ public class StorageService {
 			return null;
 		}
 
-		// 格納先のフルパス ※事前に格納先フォルダ「UploadTest」をCドライブ直下に作成しておく
+		// 格納先のフルパス
 		Path filePath = Paths.get("src/main/resources/static/assets/profileimg/" + fileName);
 
 		OutputStream stream = null;
