@@ -104,7 +104,7 @@ public class AppIntercepter<A> implements HandlerInterceptor {
 			log.info("▲▲▲ [アプリケーション中継]コントローラ処理完了、ビューのレンダリング前（共通） ▲▲▲：経過時間(" + elapsed + "ms)：" + requestUri);
 
 			Users users = (Users) session.getAttribute(AppConst.SESSION_KEY_LOGIN_INFO);
-			if (users != null) {
+			if (users != null && model != null) {
 				// ログイン情報をセット。
 				model.addObject("users", users);
 			}
