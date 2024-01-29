@@ -8,6 +8,7 @@ import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Base64;
 
 import javax.imageio.ImageIO;
 
@@ -46,11 +47,17 @@ public class StorageService {
 
 		OutputStream stream = null;
 		try {
-			// アップロードファイルをバイト値に変換
-			byte[] bytes  = multipartFile.getBytes();
+
+			File file = new File(filePath.toString());
+			if (file.exists()) {
+				return "/assets/profileimg/" + fileName;
+			}
 
 			// バイト値を書き込む為のファイルを作成して指定したパスに格納
 			stream = Files.newOutputStream(filePath);
+
+			// アップロードファイルをバイト値に変換
+			byte[] bytes = multipartFile.getBytes();
 
 			// ファイルに書き込み
 			stream.write(bytes);
@@ -61,6 +68,7 @@ public class StorageService {
 			if (stream != null) {
 				try {
 					stream.close();
+
 				} catch (IOException e) {
 					log.error("ファイルアップロードのクローズ処理でエラーが発生しました。", e);
 				}
@@ -82,12 +90,13 @@ public class StorageService {
 		String fileName = multipartFile.getOriginalFilename();
 
 		if (StringUtils.isEmpty(fileName)) {
+			// 画像ファイル名称が取得できない場合は、デフォルト画像を設定するため「true」を返す。
 			return true;
 		}
 
 		FileOutputStream fos = null;
 		try {
-			File file = new File(fileName);
+			File file = new File("src/main/resources/static/assets/profileimg/" + fileName);
 			// 拡張子を除いたファイル名を取得
 			file.createNewFile();
 			fos = new FileOutputStream(file);
@@ -116,5 +125,28 @@ public class StorageService {
 				}
 			}
 		}
+	}
+
+	/**
+	 * 画像のバイナリ情報を返す。
+	 * ※アップロードではビルドパスに画像情報を配置している為、アップロード直後にリビルドがかからず画像がデプロイされない。
+	 * 　その為リンク切れが発生していた。
+	 * 　直接ファイルを指定して、バイナリ情報を画面に送ることで解消。
+	 *
+	 * @param imageUri 画像URI
+	 * @return 画像のバイナリ情報。
+	 */
+	public static String getDataUri(String imageUri) {
+		String base64EncodedImage = "";
+		try {
+			byte[] imageBytes = Files.readAllBytes(Paths.get("src/main/resources/static" + imageUri));
+
+			// バイト配列をBase64エンコード
+			base64EncodedImage = Base64.getEncoder().encodeToString(imageBytes);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return "data:image/jpeg;base64," + base64EncodedImage;
 	}
 }

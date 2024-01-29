@@ -37,7 +37,7 @@
                   <div class="col-md-8 col-lg-8">
                     <span id="previewbox">
                       <!--/* タイムスタンプをURLパラメータに指定している理由は、更新直後ブラウザキャッシュにより表示されないことがある為、設定している。 */-->
-                      <img th:src="(*{iconUri} ?: '/assets/img/profile-dummy.png') + '?t=' + ${#dates.format(#dates.createNow(), 'yyyyMMddHHmmss')}" id="previewimg" style="height: 120px;">
+                      <img th:src="(*{iconUri} ? ${@storageService.getDataUri(requestModifyAccount.iconUri)} : '/assets/img/profile-dummy.png')" id="previewimg" style="height: 120px;">
                     </span>
                     <div class="pt-2">
                       <label>
